@@ -72,6 +72,11 @@ class Profile
             } else {
                 $result[$func] = $values;
                 $result[$func]['parents'] = [$parent];
+                $result[$func]['parents_calls'] = [];
+            }
+
+            if ($parent) {
+                $result[$func]['parents_calls'][$parent] = ($result[$func]['parents_calls'][$parent] ?? 0) + $values['ct'];
             }
 
             // Build the indexed data.
@@ -622,7 +627,7 @@ class Profile
                 $this->links[] = [
                     'source' => $parentName,
                     'target' => $childName,
-                    'callCount' => $metrics['ct'],
+                    'callCount' => $metrics['parents_calls'][$parentName] ?? $metrics['ct'],
                 ];
             }
 

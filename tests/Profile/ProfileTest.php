@@ -189,7 +189,7 @@ class ProfileTest extends TestCase
 
         $expected = $fixture['profile']['main()'];
         $result = $profile->get('main()');
-        unset($result['parents']);
+        unset($result['parents'], $result['parents_calls']);
         $this->assertEquals($expected, $result);
 
         $this->assertNull($profile->get('main()', 'derp'));
@@ -396,7 +396,7 @@ class ProfileTest extends TestCase
                 [
                     'source' => 'eat_burger()',
                     'target' => 'strlen()',
-                    'callCount' => 2,
+                    'callCount' => 1,
                 ],
                 [
                     'source' => 'main()',
@@ -411,11 +411,12 @@ class ProfileTest extends TestCase
                 [
                     'source' => 'drink_beer()',
                     'target' => 'strlen()',
-                    'callCount' => 2,
+                    'callCount' => 1,
                 ],
             ],
         ];
         $result = $profile->getCallgraph();
+
         $this->assertEquals($expected, $result);
     }
 
@@ -462,7 +463,7 @@ class ProfileTest extends TestCase
                 [
                     'source' => 'load_file()',
                     'target' => 'open()',
-                    'callCount' => 2,
+                    'callCount' => 1,
                 ],
                 [
                     'source' => 'open()',
@@ -477,7 +478,7 @@ class ProfileTest extends TestCase
                 [
                     'source' => 'parse_string()',
                     'target' => 'open()',
-                    'callCount' => 2,
+                    'callCount' => 1,
                 ],
             ],
         ];
