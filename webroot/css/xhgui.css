@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6,
     cursor: pointer;
 }
 .nav-header details dl {
-    padding: 3px;
+    padding-top: 3px;
     color: #333;
     font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
     transform: translateY(-10px);
