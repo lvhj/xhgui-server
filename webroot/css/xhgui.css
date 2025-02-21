@@ -54,6 +54,27 @@ h1, h2, h3, h4, h5, h6,
 /**
  * Top Navbar
  */
+.nav-header details > summary {
+    cursor: pointer;
+}
+.nav-header details dl {
+    padding-top: 3px;
+    color: #333;
+    font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    transform: translateY(-10px);
+    transition: all .3s ease;
+    opacity: 0;
+}
+.nav-header details[open] dl {
+    opacity: 1;
+    transform: translateY(0);
+}
+.nav-header details dd {
+    text-transform: none;
+    text-shadow: none;
+    font-weight: normal;
+    -webkit-font-smoothing: auto;
+}
 .navbar-inner {
     background: -webkit-linear-gradient(rgb(247, 247, 247), rgb(240, 240, 240));
     background: -moz-linear-gradient(rgb(247, 247, 247), rgb(240, 240, 240));

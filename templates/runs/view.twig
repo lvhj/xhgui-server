@@ -25,8 +25,12 @@
             <li class="nav-header">GET</li>
             <li>{{ helpers.property_list('GET', result.meta('get')) }}</li>
 
-            <li class="nav-header">SERVER</li>
-            <li>{{ helpers.property_list('SERVER', result.meta('SERVER')) }}
+            <li class="nav-header">
+                <details>
+                    <summary>SERVER</summary>
+                    {{ helpers.property_list('SERVER', result.meta('SERVER')) }}
+                </details>
+            </li>
 
             <li class="nav-header">Waterfall</li>
             <li><strong>By IP</strong> <a href="{{ url('waterfall.list', {'remote_addr': result.meta.SERVER.REMOTE_ADDR, 'request_start': result.meta.SERVER.REQUEST_TIME - 5, 'request_end': result.meta.SERVER.REQUEST_TIME + 15}) }}">{{ result.meta.SERVER.REMOTE_ADDR }}</a></li>
